@@ -1,0 +1,29 @@
+﻿@page
+@model LoginModel
+@{
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="ConnectOptions.Host" class="control-label"></label>
+                <input type="text" class="form-control" asp-for="ConnectOptions.Host" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ConnectOptions.HttpApiPort" class="control-label"></label>
+                <input type="text" class="form-control" asp-for="ConnectOptions.HttpApiPort" value="15672" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ConnectOptions.AmqpPort" class="control-label"></label>
+                <input type="text" class="form-control" asp-for="ConnectOptions.AmqpPort" value="5672" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ConnectOptions.UserName" class="control-label"></label>
+                <input type="text" class="form-control" asp-for="ConnectOptions.UserName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ConnectOptions.Password" class="control-label"></label>
+                <input type="text" class="form-control" asp-for="ConnectOptions.Password" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Connect</button>
+            </div>
+        </form>
+}

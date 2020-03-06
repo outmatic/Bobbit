@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bobbit:
+    image: ${DOCKER_REGISTRY-}bobbit
+    build:
+      context: .
+      dockerfile: Bobbit/Dockerfile

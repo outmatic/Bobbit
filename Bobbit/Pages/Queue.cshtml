@@ -1,0 +1,24 @@
+﻿@page
+@model QueueModel
+@{
+    <form class="form" method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Delete selected</button>
+        </div>
+        @foreach (var message in Model.Messages)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title form-check">
+                        <input class="form-check-input" type="checkbox" name="delete" value="@message.DeliveryTag" id="@message.DeliveryTag">
+                        <label class="form-check-label" for="@message.DeliveryTag">
+                            @message?.Type
+                        </label>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Delivery Tag: @message.DeliveryTag</h6>
+                    <p class="card-text">Body:<br />@message.Body</p>
+                </div>
+            </div>
+        }
+    </form>
+}

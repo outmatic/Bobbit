@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>b0a699d2-b075-4a72-bd46-6e4e1ace0fe6</UserSecretsId>
+    <AssemblyName>RabbitUI</AssemblyName>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Services\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\Privacy.cshtml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Pages\Privacy.cshtml" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        @if (Model.Queues != null)
+        {
+        <table class="table table-hover table-dark table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">vhost</th>
+                    <th scope="col">queue</th>
+                    <th scope="col">num of msgs</th>
+                </tr>
+            </thead>
+            @foreach (var queue in Model.Queues.OrderBy(x => x.Vhost))
+            {
+                <tr>
+                    <td>@queue.Vhost
+                    <td>@queue.Name</td>
+                    <td>@if (queue.Messages == 0)
+                    {
+                        @queue.Messages
+                    }
+                    else
+                    {
+                        <a asp-page="queue" asp-route-vhost="@queue.Vhost" asp-route-queue="@queue.Name">@queue.Messages</a>
+                    }
+                    </td>
+                </tr>
+            }
+        </table>
+        }
+    </div>
