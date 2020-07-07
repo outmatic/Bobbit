@@ -16,9 +16,7 @@ namespace Bobbit.Pages
         private readonly IRabbitAdminService _rabbitAdminService;
 
         public LoginModel(IRabbitAdminService rabbitAdminService)
-        {
-            _rabbitAdminService = rabbitAdminService;
-        }
+            => _rabbitAdminService = rabbitAdminService;
 
         public void OnGet()
         {
@@ -29,8 +27,7 @@ namespace Bobbit.Pages
             var canConnect = await _rabbitAdminService.CanConnectAsync(ConnectOptions);
 
             if (canConnect)
-            {
-                
+            {                
                 HttpContext.Session.SetString("ConnectOptions", JsonSerializer.Serialize(ConnectOptions));
 
                 return RedirectToPage("/index");

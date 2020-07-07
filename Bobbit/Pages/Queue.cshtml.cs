@@ -20,16 +20,12 @@ namespace Bobbit.Pages
         private readonly IRabbitAdminService _rabbitAdminService;
 
         public QueueModel(IRabbitAdminService rabbitAdminService)
-        {
-            _rabbitAdminService = rabbitAdminService;
-        }
+            => _rabbitAdminService = rabbitAdminService;
 
         public IActionResult OnGet()
         {
             if (!HttpContext.Session.TryGetValue("ConnectOptions", out var connectOptions))
-            {
                 return Redirect("/login");
-            }
 
             Messages = _rabbitAdminService.FetchMessages(JsonSerializer.Deserialize<ConnectOptions>(connectOptions), Vhost, Queue);
 
@@ -39,9 +35,7 @@ namespace Bobbit.Pages
         public IActionResult OnPost()
         {
             if (!HttpContext.Session.TryGetValue("ConnectOptions", out var connectOptions))
-            {
                 return Redirect("/login");
-            }
 
             Messages = _rabbitAdminService.FetchMessages(JsonSerializer.Deserialize<ConnectOptions>(connectOptions), Vhost, Queue, new HashSet<ulong>(Delete));
 
