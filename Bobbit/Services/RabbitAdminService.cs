@@ -100,7 +100,7 @@ namespace Bobbit.Services
 
                     messages.Add(new Message
                     {
-                        Body = encoding.GetString(result.Body),
+                        Body = encoding.GetString(result.Body.Span),
                         Type = result.BasicProperties.Type,
                         DeliveryTag = result.DeliveryTag
                     });
